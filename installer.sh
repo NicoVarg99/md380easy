@@ -61,21 +61,24 @@ function fninstall {
 	then
 		echo "[INFO] users will NOT be able to run this script"
 		fnfixdep
-		wget https://raw.githubusercontent.com/NicoVarg99/md380easy/master/md380.sh
-		cp md380.sh /usr/sbin/md380
+		wget https://raw.githubusercontent.com/NicoVarg99/md380easy/master/md380easy-root.sh
+		mv md380easy-root.sh /usr/sbin/md380
+		
 		chmod +x /usr/sbin/md380
-		rm md380.sh
+		
 		git clone https://github.com/travisgoodspeed/md380tools.git
 		cd md380tools		
 	else
 		echo "[INFO] users will be able to run this script"
 		fnfixdep
-		wget https://raw.githubusercontent.com/NicoVarg99/md380easy/master/md380.sh
-		cp md380.sh /usr/sbin/md380
-		cp md380.sh /usr/bin/md380
+		wget https://raw.githubusercontent.com/NicoVarg99/md380easy/master/md380easy-root.sh
+		mv md380easy-root.sh /usr/sbin/md380
+		wget https://raw.githubusercontent.com/NicoVarg99/md380easy/master/md380easy-user.sh
+		mv md380easy-user.sh /usr/sbin/md380
+
 		chmod +x /usr/sbin/md380
 		chmod +x /usr/bin/md380
-		rm md380.sh
+		
 		git clone https://github.com/travisgoodspeed/md380tools.git
 		cd md380tools
 		cp 99-md380.rules /etc/udev/rules.d/ #makes md380 available for all users
