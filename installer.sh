@@ -74,7 +74,7 @@ function fninstall {
 		wget https://raw.githubusercontent.com/NicoVarg99/md380easy/master/md380easy-root.sh
 		mv md380easy-root.sh /usr/sbin/md380
 		wget https://raw.githubusercontent.com/NicoVarg99/md380easy/master/md380easy-user.sh
-		mv md380easy-user.sh /usr/sbin/md380
+		mv md380easy-user.sh /usr/bin/md380
 
 		chmod +x /usr/sbin/md380
 		chmod +x /usr/bin/md380
