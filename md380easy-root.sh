@@ -3,6 +3,7 @@
 if [ $(id -u) -ne 0 ]; then
   if [ -f /usr/bin/md380 ]; then
     bash /usr/bin/md380
+    exit 0
   else
 	  echo "[ERROR] This script must be run as root." >&2 
 	  exit 1
