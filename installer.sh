@@ -89,14 +89,11 @@ function fninstall {
 		chmod +x /usr/sbin/md380
 		chmod +x /usr/bin/md380
 		
-		git clone https://github.com/travisgoodspeed/md380tools.git
-		cd md380tools
-		cp 99-md380.rules /etc/udev/rules.d/ #makes md380 available for all users
+		https://raw.githubusercontent.com/travisgoodspeed/md380tools/master/99-md380.rules
+		mv 99-md380.rules /etc/udev/rules.d/ #makes md380 available for all users
 	fi
 
-	cd ..
 
-	rm -rf md380tools
 	
 	echo -e "$TXTINFO md380 installed"
 }
