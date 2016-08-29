@@ -46,7 +46,6 @@ function fnchkinstalled {
 			fnuninstall
 		else
 			exit 0
-
 		fi
 	fi
 }
