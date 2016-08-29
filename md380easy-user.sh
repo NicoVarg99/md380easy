@@ -42,7 +42,7 @@ then
   ##### turn on radio in DFU mode to begin firmware update with USB cable ######
   echo "Now turn on the radio in DFU mode (holdig the PTT and the upper button) and plug in the programming cable"
   read -p "Press [Enter] key to start flashing..."
-  sudo make all flash
+  make all flash
 
   ##### turn radio normally on to begin database loading with USB cable #####
   echo "Now turn on the radio in normally (don't unplug the programming cable!)"
