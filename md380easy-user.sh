@@ -89,3 +89,17 @@ then
   cd ~
   rm -rf ./md380tools
 fi
+
+if [[ "$1" == "--help" ]]
+then
+  echo "Usage: $0 [OPTION]"
+  echo "Flash the md380tools firmware (https://github.com/travisgoodspeed/md380tools) and/or upload the UsersCSV database"
+  echo
+  echo -e "\t--fw\t\tDownload and flash the last md380tools firmware from Github"
+  echo -e "\t--csv\t\tUpload to the radio the list of the DMR IDs"
+  echo -e "\t--all\t\tPerform --fw and --csv (faster than running them separately)"
+  exit 0
+fi
+
+echo "$0: missing argument" 
+echo "Try \'$0 --help\' for more information" 
