@@ -15,9 +15,6 @@ if [ $(id -u) -eq 0 ]; then
 fi
 
 
-
-echo md380easy-user
-
 if [[ "$1" == "--uninstall" ]]
 then
     if [ $(id -u) -ne 0 ]; then
@@ -25,3 +22,5 @@ then
       exit 1
     fi
 fi
+
+echo -e "$TXTINFO Running md380easy as $USER"
