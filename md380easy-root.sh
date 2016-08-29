@@ -34,4 +34,10 @@ then
 	fnuninstall
 fi
 
+if [[ "$1" == "--update" ]]
+then
+        echo -e "$TXTINFO will now update md380easy"
+	#fnupdate
+fi
+
 echo -e "$TXTINFO Running md380easy as $USER"
