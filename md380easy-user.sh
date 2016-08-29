@@ -32,3 +32,23 @@ then
 fi
 
 echo -e "$TXTINFO Running md380easy as $USER"
+
+if [[ "$1" == "--fw" ]]
+then
+  git clone https://github.com/travisgoodspeed/md380tools.git
+  cd md380tools
+  make clean
+
+  ##### turn on radio in DFU mode to begin firmware update with USB cable ######
+  echo "Now turn on the radio in DFU mode (holdig the PTT and the upper button) and plug in the programming cable"
+  read -p "Press [Enter] key to start flashing..."
+  sudo make all flash
+
+  ##### turn radio normally on to begin database loading with USB cable #####
+  echo "Now turn on the radio in normally (don't unplug the programming cable!)"
+  read -p "Press [Enter] key to start flashing..."
+  sudo make flashdb
+  echo "All done. you can now unplug the programming cable."
+  cd ~
+  rm -rf ./md380tools
+fi
