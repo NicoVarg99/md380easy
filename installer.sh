@@ -9,7 +9,7 @@ export TXTERROR="$RED[ERROR]$RESETCOLOR"
 #Check that we are root before installing
 function fnchkroot {
 	if [ $(id -u) -ne 0 ]; then
-		echo "$TXTERROR This script must be run as root." >&2
+		echo -e "$TXTERROR This script must be run as root." >&2
 		exit 1
 	fi
 }
@@ -29,7 +29,7 @@ function fnchkinstalled {
 	if [[ "$INSTALLED" -eq "1" ]]
 	then
 		#installed
-		echo "[INFO] md380 is already installed"
+		echo -e "$TXTINFO md380 is already installed"
 		read -p "Would you like to reinstall it? (s/N) " -n 1 -r
 
 		if [[ $REPLY != "" ]]
@@ -39,7 +39,7 @@ function fnchkinstalled {
 
 		if [[ $REPLY =~ ^[YySs]$ ]]
 		then
-			echo "[INFO] md380 will be removed and reinstalled"
+			echo -e "$TXTINFO md380 will be removed and reinstalled"
 			fnuninstall
 		else
 			exit 0
@@ -52,7 +52,7 @@ function fnchkinstalled {
 function fnfixdep {
 	sudo apt install cmake git python-pip gcc-arm-none-eabi binutils-arm-none-eabi libnewlib-arm-none-eabi libusb-1.0 python-usb
 	sudo pip install pyusb -U
-	echo "$TXTINFO missing dependencies fixed"
+	echo -e "$TXTINFO missing dependencies fixed"
 }
 
 function fninstall {
@@ -65,7 +65,7 @@ function fninstall {
 
 	if [[ $REPLY =~ ^[YySs]$ ]]
 	then
-		echo "$TXTINFO users will NOT be able to run this script"
+		echo -e "$TXTINFO users will NOT be able to run this script"
 		fnfixdep
 		wget https://raw.githubusercontent.com/NicoVarg99/md380easy/master/md380easy-root.sh
 		mv md380easy-root.sh /usr/sbin/md380
@@ -75,7 +75,7 @@ function fninstall {
 		git clone https://github.com/travisgoodspeed/md380tools.git
 		cd md380tools		
 	else
-		echo "$TXTINFO users will be able to run this script"
+		echo -e "$TXTINFO users will be able to run this script"
 		fnfixdep
 		wget https://raw.githubusercontent.com/NicoVarg99/md380easy/master/md380easy-root.sh
 		mv md380easy-root.sh /usr/sbin/md380
@@ -94,7 +94,7 @@ function fninstall {
 
 	rm -rf md380tools
 	
-	echo "$TXTINFO md380 installed"
+	echo -e "$TXTINFO md380 installed"
 }
 
 function fnuninstall {
@@ -102,18 +102,18 @@ function fnuninstall {
 	rm /usr/bin/md380
 	rm /usr/sbin/md380
 	rm /etc/udev/rules.d/99-md380.rules
-	echo "$TXTINFO md380 uninstalled"
+	echo -e "$TXTINFO md380 uninstalled"
 }
 
 cd ~
 
 if [[ "$1" == "--uninstall" ]]
 then
-        echo "$TXTINFO will now uninstall md380easy"
+        echo -e "$TXTINFO will now uninstall md380easy"
 	fnchkroot
 	fnuninstall
 else
-        echo "$TXTINFO will now install md380easy"
+        echo -e "$TXTINFO will now install md380easy"
 	fnchkroot
 	fnchkinstalled
 	fninstall
