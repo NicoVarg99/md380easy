@@ -1,9 +1,15 @@
 #!/bin/bash
 
+export RED='\033[1;91m'
+export GREEN='\033[1;92m'
+export RESETCOLOR='\033[1;00m'
+export TXTINFO="$GREEN[INFO]$RESETCOLOR"
+export TXTERROR="$RED[ERROR]$RESETCOLOR"
+
 #Check that we are root before installing
 function fnchkroot {
 	if [ $(id -u) -ne 0 ]; then
-		echo "[ERROR] This script must be run as root." >&2
+		echo "$TXTERROR This script must be run as root." >&2
 		exit 1
 	fi
 }
@@ -46,7 +52,7 @@ function fnchkinstalled {
 function fnfixdep {
 	sudo apt install cmake git python-pip gcc-arm-none-eabi binutils-arm-none-eabi libnewlib-arm-none-eabi libusb-1.0 python-usb
 	sudo pip install pyusb -U
-	echo "[INFO] missing dependencies fixed"
+	echo "$TXTINFO missing dependencies fixed"
 }
 
 function fninstall {
@@ -59,7 +65,7 @@ function fninstall {
 
 	if [[ $REPLY =~ ^[YySs]$ ]]
 	then
-		echo "[INFO] users will NOT be able to run this script"
+		echo "$TXTINFO users will NOT be able to run this script"
 		fnfixdep
 		wget https://raw.githubusercontent.com/NicoVarg99/md380easy/master/md380easy-root.sh
 		mv md380easy-root.sh /usr/sbin/md380
@@ -69,7 +75,7 @@ function fninstall {
 		git clone https://github.com/travisgoodspeed/md380tools.git
 		cd md380tools		
 	else
-		echo "[INFO] users will be able to run this script"
+		echo "$TXTINFO users will be able to run this script"
 		fnfixdep
 		wget https://raw.githubusercontent.com/NicoVarg99/md380easy/master/md380easy-root.sh
 		mv md380easy-root.sh /usr/sbin/md380
@@ -88,7 +94,7 @@ function fninstall {
 
 	rm -rf md380tools
 	
-	echo "[INFO] md380 installed"
+	echo "$TXTINFO md380 installed"
 }
 
 function fnuninstall {
@@ -96,18 +102,18 @@ function fnuninstall {
 	rm /usr/bin/md380
 	rm /usr/sbin/md380
 	rm /etc/udev/rules.d/99-md380.rules
-	echo "[INFO] md380 uninstalled"
+	echo "$TXTINFO md380 uninstalled"
 }
 
 cd ~
 
 if [[ "$1" == "--uninstall" ]]
 then
-        echo "[INFO] will now uninstall md380easy"
+        echo "$TXTINFO will now uninstall md380easy"
 	fnchkroot
 	fnuninstall
 else
-        echo "[INFO] will now install md380easy"
+        echo "$TXTINFO will now install md380easy"
 	fnchkroot
 	fnchkinstalled
 	fninstall
