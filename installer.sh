@@ -2,9 +2,11 @@
 
 export RED='\033[1;91m'
 export GREEN='\033[1;92m'
+export BLUE='\033[1;94m'
 export RESETCOLOR='\033[1;00m'
 export TXTINFO="$GREEN[INFO]$RESETCOLOR"
 export TXTERROR="$RED[ERROR]$RESETCOLOR"
+export TXTQST="$BLUE[QUESTION]$RESETCOLOR"
 
 #Check that we are root before installing
 function fnchkroot {
@@ -30,6 +32,7 @@ function fnchkinstalled {
 	then
 		#installed
 		echo -e "$TXTINFO md380 is already installed"
+		echo -ne "$TXTQST "
 		read -p "Would you like to reinstall it? (s/N) " -n 1 -r
 
 		if [[ $REPLY != "" ]]
@@ -56,6 +59,7 @@ function fnfixdep {
 }
 
 function fninstall {
+	echo -ne "$TXTQST "
 	read -p "Install only for user \"root\"? (s/N) " -n 1 -r
 
 	if [[ $REPLY != "" ]]
