@@ -65,6 +65,8 @@ then
   echo -e "$TXTINFO All done. you can now unplug the programming cable."
   cd ~
   rm -rf ./md380tools
+  
+  exit 0
 fi
 
 if [[ "$1" == "--fw" ]]
@@ -82,6 +84,8 @@ then
   echo -e "$TXTINFO All done. you can now unplug the programming cable."
   cd ~
   rm -rf ./md380tools
+  
+  exit 0
 fi
 
 if [[ "$1" == "--csv" ]]
@@ -99,4 +103,9 @@ then
   echo -e "$TXTINFO All done. you can now unplug the programming cable."
   cd ~
   rm -rf ./md380tools
+  
+  exit 0
 fi
+
+echo "$0: missing argument" 
+echo "Try \'$0 --help\' for more information" 
