@@ -27,10 +27,11 @@ if [ $(id -u) -ne 0 ]; then
   fi
 fi
 
-echo md380easy-root
 
 if [[ "$1" == "--uninstall" ]]
 then
         echo -e "$TXTINFO will now uninstall md380easy"
 	fnuninstall
 fi
+
+echo -e "$TXTINFO Running md380easy as $USER"
