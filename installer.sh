@@ -16,7 +16,7 @@ function fnchkroot {
 	fi
 }
 
-#Check if md380 is already installed (and ask to reinstall it)
+#Check if md380easy is already installed (and ask to reinstall it)
 function fnchkinstalled {
 	INSTALLED="0"
 
@@ -33,7 +33,7 @@ function fnchkinstalled {
 		#installed
 		echo -e "$TXTINFO md380 is already installed"
 		echo -ne "$TXTQST "
-		read -p "Would you like to reinstall it? (s/N) " -n 1 -r
+		read -p "Would you like to reinstall it? (y/N) " -n 1 -r
 
 		if [[ $REPLY != "" ]]
 		then
@@ -59,7 +59,7 @@ function fnfixdep {
 
 function fninstall {
 	echo -ne "$TXTQST "
-	read -p "Install only for user \"root\"? (s/N) " -n 1 -r
+	read -p "Install only for user \"root\"? (y/N) " -n 1 -r
 
 	if [[ $REPLY != "" ]]
 	then
