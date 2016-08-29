@@ -23,4 +23,12 @@ then
     fi
 fi
 
+if [[ "$1" == "--update" ]]
+then
+    if [ $(id -u) -ne 0 ]; then
+      echo -e "$TXTERROR This script must be run as root." >&2
+      exit 1
+    fi
+fi
+
 echo -e "$TXTINFO Running md380easy as $USER"
