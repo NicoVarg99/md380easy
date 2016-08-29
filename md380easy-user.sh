@@ -33,6 +33,7 @@ fi
 
 echo -e "$TXTINFO Running md380easy as $USER"
 
+
 if [[ "$1" == "--all" ]]
 then
   git clone https://github.com/travisgoodspeed/md380tools.git
@@ -54,6 +55,8 @@ then
   echo -e "$TXTINFO All done. you can now unplug the programming cable."
   cd ~
   rm -rf ./md380tools
+  
+  exit 0
 fi
 
 if [[ "$1" == "--fw" ]]
@@ -71,6 +74,8 @@ then
   echo -e "$TXTINFO All done. you can now unplug the programming cable."
   cd ~
   rm -rf ./md380tools
+  
+  exit 0
 fi
 
 if [[ "$1" == "--csv" ]]
@@ -88,6 +93,8 @@ then
   echo -e "$TXTINFO All done. you can now unplug the programming cable."
   cd ~
   rm -rf ./md380tools
+  
+  exit 0
 fi
 
 if [[ "$1" == "--help" ]]
