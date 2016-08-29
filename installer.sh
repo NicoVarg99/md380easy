@@ -122,3 +122,5 @@ else
 	fnchkinstalled
 	fninstall
 fi
+
+rm $0
