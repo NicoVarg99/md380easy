@@ -111,7 +111,6 @@ fi
 if [[ "$1" == "" ]]
 then
   echo "md380: missing argument" 
-
 else
   echo "md380: wrong syntax" 
 fi
