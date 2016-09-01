@@ -108,5 +108,13 @@ then
   exit 0
 fi
 
-echo "md380: missing argument" 
+if [[ "$1" == "" ]]
+then
+  echo "md380: missing argument" 
+
+else
+  echo "md380: wrong syntax" 
+fi
+
 echo "Try 'md380 --help' for more information" 
+exit 1
