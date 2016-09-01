@@ -48,7 +48,7 @@ then
   
   ##### turn radio normally on to begin database loading with USB cable #####
   echo -e "$TXTINFO Now turn on the radio in normally (don't unplug the programming cable!)"
-  read -p "Press [Enter] key to start flashing..."
+  read -p "Once done, press [Enter] key to start flashing..."
   make flashdb
   echo -e "$TXTINFO UsersCSV flashed."
   
@@ -86,7 +86,7 @@ then
 
  ##### turn radio normally on to begin database loading with USB cable #####
   echo -e "$TXTINFO Turn on the radio in normally and plug in the programming cable."
-  read -p "Press [Enter] key to start flashing..."
+  read -p "Once done, press [Enter] key to start flashing..."
   make flashdb
   echo -e "$TXTINFO UsersCSV flashed."
   
@@ -99,7 +99,7 @@ fi
 
 if [[ "$1" == "--help" ]]
 then
-  echo "Usage: $0 [OPTION]"
+  echo "Usage: md380 [OPTION]"
   echo "Flash the md380tools firmware (https://github.com/travisgoodspeed/md380tools) and/or upload the UsersCSV database"
   echo
   echo -e "\t--fw\t\tDownload and flash the last md380tools firmware from Github"
