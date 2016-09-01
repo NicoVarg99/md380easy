@@ -42,7 +42,7 @@ then
 
   ##### turn on radio in DFU mode to begin firmware update with USB cable ######
   echo -e "$TXTINFO Tturn on the radio in DFU mode (holdig the PTT and the upper button) and plug in the programming cable."
-  read -p "Press [Enter] key to start flashing..."
+  read -p "Once done, press [Enter] key to start flashing..."
   make all flash
   echo -e "$TXTINFO Firmware flashed."
   
@@ -67,7 +67,7 @@ then
 
   ##### turn on radio in DFU mode to begin firmware update with USB cable ######
   echo -e "$TXTINFO Turn on the radio in DFU mode (holdig the PTT and the upper button) and plug in the programming cable."
-  read -p "Press [Enter] key to start flashing..."
+  read -p "Once done, press [Enter] key to start flashing..."
   make all flash
   echo -e "$TXTINFO Firmware flashed."
   
