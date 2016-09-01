@@ -118,5 +118,5 @@ then
   exit 0
 fi
 
-echo "$0: missing argument" 
-echo "Try \'$0 --help\' for more information" 
+echo "md380: missing argument" 
+echo "Try 'md380 --help' for more information" 
